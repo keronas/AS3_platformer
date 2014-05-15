@@ -6,7 +6,7 @@ package
 	 */
 	public class Resources 
 	{
-		[] protected const MENU_BUTTON:Class;
+		[] static const MENU_BUTTON:Class;
 		public function Resources() 
 		{
 			
