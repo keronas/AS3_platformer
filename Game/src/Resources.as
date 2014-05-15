@@ -6,7 +6,7 @@ package
 	 */
 	public class Resources 
 	{
-		[] static const MENU_BUTTON:Class;
+		[Embed(source="čudlík.png")] static const MENU_BUTTON:Class;
 		public function Resources() 
 		{
 			

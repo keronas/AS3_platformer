@@ -18,6 +18,11 @@
       <name>CONFIG::timeStamp</name>
       <value>'15.5.2014'</value>
     </define>
+<<<<<<< HEAD
+    <verbose-stacktraces>true</verbose-stacktraces>
+    <source-path append="true">
+      <path-element>C:\Users\Tomáš\AS3_Platformer\Game\src</path-element>
+=======
     <define append="true">
       <name>CONFIG::air</name>
       <value>false</value>
@@ -33,11 +38,16 @@
     <verbose-stacktraces>true</verbose-stacktraces>
     <source-path append="true">
       <path-element>C:\Users\Rodina\Documents\GitHub\AS3_platformer\Game\src</path-element>
+>>>>>>> 94a8a347fe077bac6367a70fa12e121577fba6a0
       <path-element>C:\Program Files (x86)\FlashDevelop\Library\AS3\classes</path-element>
     </source-path>
   </compiler>
   <file-specs>
+<<<<<<< HEAD
+    <path-element>C:\Users\Tomáš\AS3_Platformer\Game\src\Main.as</path-element>
+=======
     <path-element>C:\Users\Rodina\Documents\GitHub\AS3_platformer\Game\src\Main.as</path-element>
+>>>>>>> 94a8a347fe077bac6367a70fa12e121577fba6a0
   </file-specs>
   <default-background-color>#FFFFFF</default-background-color>
   <default-frame-rate>30</default-frame-rate>
