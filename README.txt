@@ -1,1 +1,1 @@
-Suvoj je gay
+NE
