@@ -1,1 +1,1 @@
-wow such game very 2d
+Suvoj je gay
