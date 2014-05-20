@@ -14,12 +14,13 @@ package
 
 	/**
 	 * ...
-	 * @author Keronas
+	 * @author Píča
 	 */
 	[Frame(factoryClass = "Preloader")]
 	
-	public class Main extends Sprite 
+	public class Main extends Sprite
 	{
+		public var menu:Menu = new Menu();
     
 		public function Main():void 
 		{
@@ -31,6 +32,8 @@ package
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			// entry point
+			addChild(menu);
+			
 		}
 
 	}
