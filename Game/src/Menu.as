@@ -17,8 +17,8 @@ package
 	 */
 	public class Menu extends Sprite
 	{
-		public var cudlikBitmap:Bitmap = new Bitmap();
-		public var cudlik:Sprite = new Sprite();
+		public var startButtonBitmap:Bitmap = new Bitmap();
+		public var startButton:Sprite = new Sprite();
 		public var startDown:Boolean = false;		
 		
 		public function Menu():void 
@@ -31,25 +31,41 @@ package
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			// entry point
-			cudlikBitmap.bitmapData = (new Resources.MENU_BUTTON() as Bitmap).bitmapData;
-			cudlik.addEventListener(MouseEvent.MOUSE_DOWN, MouseDown);
-			cudlik.addEventListener(MouseEvent.MOUSE_UP, MouseUp);
-			addChild(cudlik);
-			cudlik.addChild(cudlikBitmap);
-			cudlik.x = 400;
-			cudlik.y = 300;
+			startButtonBitmap.bitmapData = (new Resources.MENU_BUTTON() as Bitmap).bitmapData;
+			startButton.addEventListener(MouseEvent.MOUSE_DOWN, MouseDown);
+			startButton.addEventListener(MouseEvent.MOUSE_UP, MouseUp);
+			addChild(startButton);
+			startButton.addChild(startButtonBitmap);
+			startButton.x = 400;
+			startButton.y = 300;
+			startButton.name = "start";
 		}
 		private function MouseDown(e:MouseEvent):void
 		{
+			switch ((e.target as Sprite).name) 
+			{
+				case "start":
+					startDown = true;
+				break;
+				
+			}
 			
-			startDown = true;
+				
+		
 			
 		}
 		private function MouseUp(e:MouseEvent):void
 		{
-			
-			startDown = false;
-			
+			switch ((e.target as Sprite).name)
+			{
+				case "start":
+					startDown = false;
+				break;
+				
+			}
+				
+		
+		
 		}
 	}
 
