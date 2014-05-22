@@ -19,7 +19,7 @@ package
 	{
 		public var cudlikBitmap:Bitmap = new Bitmap();
 		public var cudlik:Sprite = new Sprite();
-		public var mouseDown:Boolean = false;		
+		public var startDown:Boolean = false;		
 		
 		public function Menu():void 
 		{
@@ -42,13 +42,13 @@ package
 		private function MouseDown(e:MouseEvent):void
 		{
 			
-			mouseDown = true;
+			startDown = true;
 			
 		}
 		private function MouseUp(e:MouseEvent):void
 		{
 			
-			mouseDown = false;
+			startDown = false;
 			
 		}
 	}
