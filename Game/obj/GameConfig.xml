@@ -16,16 +16,28 @@
     </define>
     <define append="true">
       <name>CONFIG::timeStamp</name>
-      <value>'20.5.2014'</value>
+      <value>'26.5.2014'</value>
+    </define>
+    <define append="true">
+      <name>CONFIG::air</name>
+      <value>false</value>
+    </define>
+    <define append="true">
+      <name>CONFIG::mobile</name>
+      <value>false</value>
+    </define>
+    <define append="true">
+      <name>CONFIG::desktop</name>
+      <value>false</value>
     </define>
     <verbose-stacktraces>true</verbose-stacktraces>
     <source-path append="true">
-      <path-element>C:\Users\Tomáš\AS3_Platformer\Game\src</path-element>
-      <path-element>C:\Program Files (x86)\FlashDevelop\Library\AS3\classes</path-element>
+      <path-element>E:\Programování\Projekty\AS3_platformer-master\AS3_platformer-master\Game\src</path-element>
+      <path-element>E:\Programování\FlashDevelop Standalone\Library\AS3\classes</path-element>
     </source-path>
   </compiler>
   <file-specs>
-    <path-element>C:\Users\Tomáš\AS3_Platformer\Game\src\Main.as</path-element>
+    <path-element>E:\Programování\Projekty\AS3_platformer-master\AS3_platformer-master\Game\src\Main.as</path-element>
   </file-specs>
   <default-background-color>#FFFFFF</default-background-color>
   <default-frame-rate>30</default-frame-rate>
