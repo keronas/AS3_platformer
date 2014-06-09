@@ -20,8 +20,8 @@ package
 	
 	public class Main extends Sprite
 	{
-		//public var menu:Menu = new Menu();
-		public var playState:PlayState = new PlayState();
+		
+		
     
 		public function Main():void 
 		{
@@ -32,8 +32,8 @@ package
 		private function init(e:Event = null):void 
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, init);
-			// entry point
-			addChild(playState);
+			var menu:Menu = new Menu();
+			addChild(menu);
 			
 		}
 
