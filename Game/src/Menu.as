@@ -17,23 +17,41 @@ package
 	 */
 	public class Menu extends Sprite
 	{
-		public var startButtonBitmap:Bitmap = new Bitmap();
+		public var startButtonBitmap:Bitmap = new Bitmap();  //deklarace bitmap a najetí myší pro start tlačítko
 		public var startButton:Sprite = new Sprite();
 		public var startMouseOver:Boolean = false;	
 		public var startButtonBitmapData1:BitmapData;
 		public var startButtonBitmapData2:BitmapData;
 		
-		public var creditsButtonBitmap:Bitmap = new Bitmap();
+		public var creditsButtonBitmap:Bitmap = new Bitmap(); //deklarace bitmap a najetí myší pro credits tlačítko
 		public var creditsButtonBitmapData1:BitmapData;
 		public var creditsButtonBitmapData2:BitmapData;
 		public var creditsMouseOver:Boolean = false;	
 		public var creditsButton:Sprite = new Sprite();
 		
-		public var creditsCloseButtonBitmap:Bitmap = new Bitmap();
+				
+		public var optionsButtonBitmap:Bitmap = new Bitmap(); //deklarace bitmap a najetí myší pro options tlačítko
+		public var optionsButtonBitmapData1:BitmapData;
+		public var optionsButtonBitmapData2:BitmapData;
+		public var optionsMouseOver:Boolean = false;	
+		public var optionsButton:Sprite = new Sprite();
+		
+		public var creditsCloseButtonBitmap:Bitmap = new Bitmap(); //deklarace bitmap a najetí myší pro tlačítko, které vypíná credits (viz. níže)
 		public var creditsCloseButtonBitmapData1:BitmapData;
 		public var creditsCloseButtonBitmapData2:BitmapData;
 		public var creditsCloseMouseOver:Boolean = false;	
 		public var creditsCloseButton:Sprite = new Sprite();
+		public var creditstext:TextField = new TextField;
+		
+		public var englishButtonBitmap:Bitmap = new Bitmap(); //deklarace bitmap a najetí myší pro tlačítko, které nastavuje jazyk (toto je angličtina)
+		public var englishButtonBitmapData1:BitmapData;
+		public var englishButton:Sprite = new Sprite();
+		
+		public var czechButtonBitmap:Bitmap = new Bitmap(); //deklarace bitmap a najetí myší pro tlačítko, které nastavuje jazyk (pro češtinu (né čínštinu!))
+		public var czechButtonBitmapData1:BitmapData;
+		public var czechButton:Sprite = new Sprite();
+		
+		public var languageczech:Boolean = true; //čeština = true, angličtina = false
 		
 		public var buttonsActive:Boolean = true;
 		
@@ -52,7 +70,7 @@ package
 			
 			
 			
-			startButtonBitmapData1 = (new Resources.MENU_BUTTON_UP() as Bitmap).bitmapData;  //jenom start
+			startButtonBitmapData1 = (new Resources.MENU_BUTTON_UP() as Bitmap).bitmapData;  //info o start tlačítku, (obrázek, pozice...)
 			startButtonBitmapData2 = (new Resources.MENU_BUTTON_DOWN() as Bitmap).bitmapData;
 			startButton.addEventListener(MouseEvent.MOUSE_OVER, MouseOver);
 			startButton.addEventListener(MouseEvent.MOUSE_OUT, MouseOut);
@@ -77,6 +95,42 @@ package
 			creditsButton.y = 300;
 			creditsButton.name = "credits";
 			creditsButtonBitmap.bitmapData = creditsButtonBitmapData1;
+			
+			optionsButtonBitmapData1 = (new Resources.MENU_BUTTON_UP() as Bitmap).bitmapData;  //jenom credits
+			optionsButtonBitmapData2 = (new Resources.MENU_BUTTON_DOWN() as Bitmap).bitmapData;
+			optionsButton.addEventListener(MouseEvent.MOUSE_OVER, MouseOver);
+			optionsButton.addEventListener(MouseEvent.MOUSE_OUT, MouseOut);
+			optionsButton.addEventListener(MouseEvent.MOUSE_UP, MouseUp);
+			optionsButtonBitmap.bitmapData = optionsButtonBitmapData1;
+			addChild(optionsButton);
+			optionsButton.addChild(optionsButtonBitmap);
+			optionsButton.x = 200;
+			optionsButton.y = 300;
+			optionsButton.name = "options";
+			optionsButtonBitmap.bitmapData = optionsButtonBitmapData1;
+			
+			czechButtonBitmapData1 = (new Resources.MENU_BUTTON_UP() as Bitmap).bitmapData;  //jenom tlačítko pro češtinu
+			czechButton.addEventListener(MouseEvent.MOUSE_UP, MouseUp);
+			czechButtonBitmap.bitmapData = czechButtonBitmapData1;
+			addChild(czechButton);
+			czechButton.addChild(czechButtonBitmap);
+			czechButton.x = 20;
+			czechButton.y = 500;
+			czechButton.name = "czech";
+			
+			
+			englishButtonBitmapData1 = (new Resources.MENU_BUTTON_UP() as Bitmap).bitmapData;  //jenom tlačítko pro češtinu
+			englishButton.addEventListener(MouseEvent.MOUSE_UP, MouseUp);
+			englishButtonBitmap.bitmapData = englishButtonBitmapData1;
+			addChild(englishButton);
+			englishButton.addChild(englishButtonBitmap);
+			englishButton.x = 100;
+			englishButton.y = 500;
+			englishButton.name = "english";
+			
+			creditstext.text = "tady jsou naše jména apod... zejtraa si s tím pohraju";
+			creditstext.name = "creditstext";
+
 
 		}
 		private function MouseOver(e:MouseEvent):void
@@ -97,6 +151,11 @@ package
 				case "creditsClose":
 					creditsCloseMouseOver = true;
 					creditsCloseButtonBitmap.bitmapData = creditsCloseButtonBitmapData2;
+				break;
+			
+				case "options":
+					optionsMouseOver = false;
+					optionsButtonBitmap.bitmapData = optionsButtonBitmapData2;
 				break;
 			}
 			
@@ -122,6 +181,12 @@ package
 					creditsCloseMouseOver = false;
 					creditsCloseButtonBitmap.bitmapData = creditsCloseButtonBitmapData1;
 				break;
+			
+				case "options":
+					optionsMouseOver = false;
+					optionsButtonBitmap.bitmapData = optionsButtonBitmapData1;
+				break;
+				
 			}
 				
 		
@@ -131,7 +196,7 @@ package
 		private function MouseUp (e:MouseEvent):void
 		{
 		
-			switch ((e.target as Sprite).name) //toto dělá že když se a to klikne tak že to něco udělá (přidá playState a smaže se
+			switch ((e.target as Sprite).name) //toto dělá že když se a to klikne tak že to něco udělá ,přidá playState a smaže se
 			{
 				
 				case "start":
@@ -151,6 +216,11 @@ package
 						addChild(creditsBackGround);
 						buttonsActive = false;
 					
+						addChild(creditstext);
+						creditstext.name = "creditstext";
+						creditstext.x = 50;
+						creditstext.y = 50;
+						
 						creditsCloseButtonBitmapData1 = (new Resources.MENU_BUTTON_UP() as Bitmap).bitmapData;  //jenom credits
 						creditsCloseButtonBitmapData2 = (new Resources.MENU_BUTTON_DOWN() as Bitmap).bitmapData;
 						creditsCloseButton.addEventListener(MouseEvent.MOUSE_OVER, MouseOver);
@@ -169,7 +239,32 @@ package
 				case "creditsClose":
 					removeChild(getChildByName("creditsBackGround"));
 					removeChild(getChildByName("creditsClose"));
+					
 					buttonsActive = true;
+					removeChild(creditstext);
+				break;
+			
+				case "options":
+				
+				//dunno co teď? plz. Valve upgrad tis 
+				// budem chtít vytvořit nový tlačítka (i z obrázkem které přkrejou ty minulé tlačítka?) nebo to prostě udělá nějakou magii?
+				//můj nápad:překrýt to jiným pozadím a vytvořit nový tlačítka jako v credits, poté jedním tlačítkem pozadí (i s tlačítky smáznout) 
+				//a nebo udělat novou classu option která při vytvoření sama vytvoří pozadí a vygeneruje tlačítka (s nastavením úžasnosti a hlasitosti a kdoví co ještě)
+				
+				break;	
+				
+				case "czech":
+					if (buttonsActive)
+					{
+						languageczech = true;
+					}
+				break;
+				
+				case "english":
+					if (buttonsActive)
+					{
+						languageczech = false;
+					}
 				break;
 			}
 				
