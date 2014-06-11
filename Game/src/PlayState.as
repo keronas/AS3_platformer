@@ -10,7 +10,7 @@ package
 	
 	/**
 	 * ...
-	 * @author Suvoj
+	 * @author Zoouvoj
 	 */
 	public class PlayState extends Sprite
 	{
@@ -19,6 +19,9 @@ package
 		public var tilesPerRow:uint = 20;
 		public var tileSolid:int = 2;
 		public var player:Player = new Player();
+		
+		
+		
 		
 		public function PlayState() 
 		{
@@ -49,8 +52,10 @@ package
 			}
 			
 			player.x = 120;
-			player.y = 160;
+			player.y = 100;
 			addChild(player);
+			
+			
 		}
 		
 	}
