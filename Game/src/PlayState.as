@@ -18,12 +18,13 @@ package
 		public var tileMap:Array = new Array();
 		public var tilesPerRow:uint = 20;
 		public var tileSolid:int = 2;
+		public var player:Player = new Player();
 		
 		public function PlayState() 
 		{
 			tileSet=new BitmapArray(Resources.TILE_SET_1, 40)
 			tileMap = 
-		  [	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+		   [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
 			2,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
 			1,1,2,2,2,2,1,1,1,2,1,1,1,1,1,2,2,2,2,2,
 			1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
@@ -37,8 +38,7 @@ package
 			1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,1,1,1,1,
 			1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
 			2,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,
-			2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2
-			]
+			2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]
 			
 			for (var i:int = 0; i < tileMap.length; i++) 
 			{
@@ -47,6 +47,10 @@ package
 				tile.y = Math.floor(i / 20) * 40;
 				addChild(tile);
 			}
+			
+			player.x = 120;
+			player.y = 160;
+			addChild(player);
 		}
 		
 	}
