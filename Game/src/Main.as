@@ -32,7 +32,6 @@ package
 		private function init(e:Event = null):void 
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, init);
-			addChild(new KeyboardListener());
 			var menu:Menu = new Menu();
 			addChild(menu);
 			
