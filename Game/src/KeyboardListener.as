@@ -1,6 +1,6 @@
 package  
 {
-		import flash.display.Sprite;
+	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.KeyboardEvent;
 	import flash.ui.Keyboard;
@@ -14,11 +14,12 @@ package
 		public static var downDown:Boolean = false;
 		public static var leftDown:Boolean = false;
 		public static var rightDown:Boolean = false;
+		public static var spaceDown:Boolean = false;
 		
 		public function KeyboardListener()
 		{			
-		stage.addEventListener(KeyboardEvent.KEY_DOWN, KeyDown);
-		stage.addEventListener(KeyboardEvent.KEY_UP, KeyUp)
+		
+		addEventListener (Event.ADDED_TO_STAGE, AddedToStage);
 		}
 		private function KeyDown(e:KeyboardEvent):void
 		{
@@ -36,6 +37,9 @@ package
 				break;
 				case Keyboard.RIGHT:
 					rightDown = true;
+				break;
+				case Keyboard.SPACE:
+					spaceDown = true;
 				break;
 			}
 		}
@@ -55,8 +59,16 @@ package
 				case Keyboard.RIGHT:
 					rightDown = false;
 				break;
+				case Keyboard.SPACE:
+					spaceDown = false;
+				break;
 			
 			}
+		}
+		private function AddedToStage(e:Event):void
+		{
+			stage.addEventListener(KeyboardEvent.KEY_DOWN, KeyDown);
+		stage.addEventListener(KeyboardEvent.KEY_UP, KeyUp);
 		}
 		
 	}
