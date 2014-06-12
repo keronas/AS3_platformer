@@ -16,22 +16,7 @@
     </define>
     <define append="true">
       <name>CONFIG::timeStamp</name>
-      <value>'11.6.2014'</value>
-<<<<<<< HEAD
-    </define>
-    <define append="true">
-      <name>CONFIG::air</name>
-      <value>false</value>
-    </define>
-    <define append="true">
-      <name>CONFIG::mobile</name>
-      <value>false</value>
-    </define>
-    <define append="true">
-      <name>CONFIG::desktop</name>
-      <value>false</value>
-=======
->>>>>>> origin/master
+      <value>'12.6.2014'</value>
     </define>
     <verbose-stacktraces>true</verbose-stacktraces>
     <source-path append="true">
