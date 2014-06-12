@@ -109,7 +109,7 @@ package
 			optionsButton.name = "options";
 			optionsButtonBitmap.bitmapData = optionsButtonBitmapData1;
 			
-			czechButtonBitmapData1 = (new Resources.MENU_BUTTON_UP() as Bitmap).bitmapData;  //jenom tlačítko pro češtinu
+			czechButtonBitmapData1 = (new Resources.LANGCZECH() as Bitmap).bitmapData;  //jenom tlačítko pro češtinu
 			czechButton.addEventListener(MouseEvent.MOUSE_UP, MouseUp);
 			czechButtonBitmap.bitmapData = czechButtonBitmapData1;
 			addChild(czechButton);
@@ -119,7 +119,7 @@ package
 			czechButton.name = "czech";
 			
 			
-			englishButtonBitmapData1 = (new Resources.MENU_BUTTON_UP() as Bitmap).bitmapData;  //jenom tlačítko pro češtinu
+			englishButtonBitmapData1 = (new Resources.LANGENG as Bitmap).bitmapData;  //jenom tlačítko pro inglištinu
 			englishButton.addEventListener(MouseEvent.MOUSE_UP, MouseUp);
 			englishButtonBitmap.bitmapData = englishButtonBitmapData1;
 			addChild(englishButton);
@@ -211,7 +211,7 @@ package
 				case "credits": //neplést s penězi, toto jsou titulky
 					if (buttonsActive)	
 					{	
-						var creditsBackGround:Bitmap = new Resources.MENU_BACKGROUND();
+						var creditsBackGround:Bitmap = new Resources.OBRCREDITS();
 						creditsBackGround.name = "creditsBackGround";
 						addChild(creditsBackGround);
 						buttonsActive = false;
@@ -221,8 +221,8 @@ package
 						creditstext.x = 50;
 						creditstext.y = 50;
 						
-						creditsCloseButtonBitmapData1 = (new Resources.MENU_BUTTON_UP() as Bitmap).bitmapData;  //jenom credits
-						creditsCloseButtonBitmapData2 = (new Resources.MENU_BUTTON_DOWN() as Bitmap).bitmapData;
+						creditsCloseButtonBitmapData1 = (new Resources.MENU_STIT() as Bitmap).bitmapData;  //jenom credits
+						creditsCloseButtonBitmapData2 = (new Resources.MENU_STIT() as Bitmap).bitmapData;
 						creditsCloseButton.addEventListener(MouseEvent.MOUSE_OVER, MouseOver);
 						creditsCloseButton.addEventListener(MouseEvent.MOUSE_OUT, MouseOut);
 						creditsCloseButton.addEventListener(MouseEvent.MOUSE_UP, MouseUp);
