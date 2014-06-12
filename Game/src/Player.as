@@ -11,7 +11,7 @@ package
 	{
 				
 		public var ySpeed:Number = 0;
-		
+		public var xSpeed:Number = 0;
 		
 		public function Player() 
 		{
@@ -39,6 +39,18 @@ package
 					y = 100;
 					ySpeed = 0;
 				}
+				if (KeyboardListener.leftDown)
+				{
+				xSpeed = -3;
+				x+=xSpeed
+				}
+				
+				if (KeyboardListener.rightDown)
+				{
+				xSpeed = 3;
+				x+=xSpeed	
+				}
+				
 			}
 		
 	}
