@@ -39,18 +39,20 @@ package
 					y = 100;
 					ySpeed = 0;
 				}
+				
+				xSpeed = 0;
 				if (KeyboardListener.leftDown)
 				{
-				xSpeed = -3;
-				x+=xSpeed
+					xSpeed += (parent as PlayState).CheckCollision(this, false, -3);
+					
 				}
 				
 				if (KeyboardListener.rightDown)
 				{
-				xSpeed = 3;
-				x+=xSpeed	
+					xSpeed += (parent as PlayState).CheckCollision(this, false, 3);
+					
 				}
-				
+				x += xSpeed;
 			}
 		
 	}

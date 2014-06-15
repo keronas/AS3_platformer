@@ -27,7 +27,7 @@ package
 		{
 			tileSet=new BitmapArray(Resources.TILE_SET_1, 40)
 			tileMap = 
-		   [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+		 /*[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
 			2,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
 			1,1,2,2,2,2,1,1,1,2,1,1,1,1,1,2,2,2,2,2,
 			1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
@@ -41,52 +41,81 @@ package
 			1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,1,1,1,1,
 			1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
 			2,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,
-			2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]
+			2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]*/
 			
+		   [1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,
+			1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,
+			1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,
+			1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,
+			1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,
+			1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,
+			1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,
+			1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,
+			1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,
+			1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,
+			1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,
+			1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,
+			1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,
+			1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,
+			1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1]
+			trace(1);
 			for (var i:int = 0; i < tileMap.length; i++) 
 			{
 				var tile:Bitmap = new Bitmap(tileSet.bitmaps[tileMap[i]]);
 				tile.x = (i % tilesPerRow) * 40;
 				tile.y = Math.floor(i / 20) * 40;
-				if (!(tileMap[i] < tileSolid))
+				
+				if (tileMap[i] >= tileSolid)
 				{
-					solidTiles.push(new Bitmap(tileSet.bitmaps[tileMap[i]]));
+					solidTiles.push(tile);
 				}				
-								
+				
 				addChild(tile);
 			}
 			
 			
-			player.x = 120;
+			player.x = 400;
 			player.y = 100;
 			addChild(player);
 			
 			
 		}
-		public function checkCollision(obj:Bitmap,xMove:Number,yMove:Number):Number
+		public function CheckCollision(obj:Bitmap,YAxis:Boolean ,distance:Number):Number
 		{
-			var fXMove:Number = xMove;
-			var fYMove:Number = yMove;
-			for (var i:int = 0; i < solidTiles.length ; i++) 
+			var fDistance:Number = distance;
+			if (YAxis) 
 			{
-				if (solidTiles[i].x-39<(obj.x + xMove)<solidTiles[i].x+40)
+				
+			}
+			else 
+			{
+				for (var i:int = 0; i < solidTiles.length ; i++) 
 				{
-					var cMove:Number = xMove;
-					if (xMove>0)
+					if ((obj.x + distance) < (solidTiles[i].x + 40) && (solidTiles[i].x - 40) < (obj.x + distance))
 					{
-						cMove = obj.x - solidTiles[i].x - 40;
-					}
-					else
-					{
-						cMove = obj.x - solidTiles[i].x + 41;
-					}
-					if (cMove < fXMove)
-					{
-						fXMove = cMove;
+						trace(solidTiles[i].x-40, (obj.x + distance), solidTiles[i].x+40);
+						var cMove:Number = distance;
+						if (distance>0)
+						{
+							cMove = (solidTiles[i].x - 40) - obj.x;
+							//trace(cMove);
+						}
+						else
+						{
+							cMove = (solidTiles[i].x + 40) - obj.x;
+							//trace(cMove);
+						}
+						if (Math.abs(cMove) < Math.abs(fDistance))
+						{
+							fDistance = cMove;
+						}
+						
 					}
 					
 				}
+				
 			}
+			return fDistance;
 		}
 		
 		
