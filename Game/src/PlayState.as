@@ -58,7 +58,6 @@ package
 			1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,
 			1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,
 			1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1]*/
-			trace(1);
 			for (var i:int = 0; i < tileMap.length; i++) 
 			{
 				var tile:Bitmap = new Bitmap(tileSet.bitmaps[tileMap[i]]);
@@ -83,14 +82,16 @@ package
 		public function CheckCollision(obj:Bitmap,YAxis:Boolean ,distance:Number):Number
 		{
 			var fDistance:Number = distance;
+			var i:int = 0;
+			var cMove:Number = distance;
 			if (YAxis) 
 			{
-				for (var i:int = 0; i < solidTiles.length ; i++) 
+				for (i = 0; i < solidTiles.length ; i++) 
 				{
 					if ((solidTiles[i].x + 40) > obj.x && (solidTiles[i].x - 40) < obj.x && (obj.y + distance) < (solidTiles[i].y + 40) && (solidTiles[i].y - 40) < (obj.y + distance))
 					{
 						//trace(solidTiles[i].x-40, (obj.x + distance), solidTiles[i].x+40);
-						var cMove:Number = distance;
+						cMove = distance;
 						if (distance>0)
 						{
 							cMove = (solidTiles[i].y - 40) - obj.y;
@@ -112,12 +113,12 @@ package
 			}
 			else 
 			{
-				for (var i:int = 0; i < solidTiles.length ; i++) 
+				for (i = 0; i < solidTiles.length ; i++) 
 				{
 					if ((solidTiles[i].y + 40) > obj.y && (solidTiles[i].y - 40) < obj.y && (obj.x + distance) < (solidTiles[i].x + 40) && (solidTiles[i].x - 40) < (obj.x + distance))
 					{
 						//trace(solidTiles[i].x-40, (obj.x + distance), solidTiles[i].x+40);
-						var cMove:Number = distance;
+						cMove = distance;
 						if (distance>0)
 						{
 							cMove = (solidTiles[i].x - 40) - obj.x;
