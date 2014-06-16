@@ -32,13 +32,13 @@ package
 				xSpeed = 0;
 				if (KeyboardListener.leftDown)
 				{
-					xSpeed += (parent as PlayState).CheckCollision(this, false, -3);
+					xSpeed += (parent as PlayState).CheckCollision(this, false, -4);
 					
 				}
 				
 				if (KeyboardListener.rightDown)
 				{
-					xSpeed += (parent as PlayState).CheckCollision(this, false, 3);
+					xSpeed += (parent as PlayState).CheckCollision(this, false, 4);
 					
 				}
 				x += xSpeed;
