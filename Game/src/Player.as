@@ -28,16 +28,6 @@ package
 					ySpeed = -11;
 				}
 				
-				/*if (y + ySpeed < 100)
-				{
-					y += ySpeed;
-					ySpeed += 0.2;
-				}
-				else
-				{
-					y = 100;
-					ySpeed = 0;
-				}*/
 				
 				xSpeed = 0;
 				if (KeyboardListener.leftDown)

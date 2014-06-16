@@ -51,7 +51,7 @@ package
 		public var czechButtonBitmapData1:BitmapData;
 		public var czechButton:Sprite = new Sprite();
 		
-		public var languageczech:Boolean = true; //čeština = true, angličtina = false
+		public var languageCzech:Boolean = true; //čeština = true, angličtina = false
 		
 		public var buttonsActive:Boolean = true;
 		
@@ -70,46 +70,46 @@ package
 			
 			
 			
-			startButtonBitmapData1 = (new Resources.MENU_BUTTON_UP() as Bitmap).bitmapData;  //info o start tlačítku, (obrázek, pozice...)
-			startButtonBitmapData2 = (new Resources.MENU_BUTTON_DOWN() as Bitmap).bitmapData;
+			startButtonBitmapData1 = (new Resources.MENU_START_UP() as Bitmap).bitmapData;  //info o start tlačítku, (obrázek, pozice...)
+			startButtonBitmapData2 = (new Resources.MENU_START_DOWN() as Bitmap).bitmapData;
 			startButton.addEventListener(MouseEvent.MOUSE_OVER, MouseOver);
 			startButton.addEventListener(MouseEvent.MOUSE_OUT, MouseOut);
 			startButton.addEventListener(MouseEvent.MOUSE_UP, MouseUp);
 			startButtonBitmap.bitmapData = startButtonBitmapData1;
 			addChild(startButton);
 			startButton.addChild(startButtonBitmap);
-			startButton.x = 400;
-			startButton.y = 300;
+			startButton.x = 335;
+			startButton.y = 350;
 			startButton.name = "start";
 			startButtonBitmap.bitmapData = startButtonBitmapData1;
 			
-			creditsButtonBitmapData1 = (new Resources.MENU_BUTTON_UP() as Bitmap).bitmapData;  //jenom credits
-			creditsButtonBitmapData2 = (new Resources.MENU_BUTTON_DOWN() as Bitmap).bitmapData;
+			creditsButtonBitmapData1 = (new Resources.MENU_CREDITS_UP() as Bitmap).bitmapData;  //jenom credits
+			creditsButtonBitmapData2 = (new Resources.MENU_CREDITS_DOWN() as Bitmap).bitmapData;
 			creditsButton.addEventListener(MouseEvent.MOUSE_OVER, MouseOver);
 			creditsButton.addEventListener(MouseEvent.MOUSE_OUT, MouseOut);
 			creditsButton.addEventListener(MouseEvent.MOUSE_UP, MouseUp);
 			creditsButtonBitmap.bitmapData = creditsButtonBitmapData1;
 			addChild(creditsButton);
 			creditsButton.addChild(creditsButtonBitmap);
-			creditsButton.x = 600;
-			creditsButton.y = 300;
+			creditsButton.x = 535;
+			creditsButton.y = 350;
 			creditsButton.name = "credits";
 			creditsButtonBitmap.bitmapData = creditsButtonBitmapData1;
 			
-			optionsButtonBitmapData1 = (new Resources.MENU_BUTTON_UP() as Bitmap).bitmapData;  //jenom credits
-			optionsButtonBitmapData2 = (new Resources.MENU_BUTTON_DOWN() as Bitmap).bitmapData;
+			optionsButtonBitmapData1 = (new Resources.MENU_OPTIONS_UP() as Bitmap).bitmapData;  //jenom credits
+			optionsButtonBitmapData2 = (new Resources.MENU_OPTIONS_DOWN() as Bitmap).bitmapData;
 			optionsButton.addEventListener(MouseEvent.MOUSE_OVER, MouseOver);
 			optionsButton.addEventListener(MouseEvent.MOUSE_OUT, MouseOut);
 			optionsButton.addEventListener(MouseEvent.MOUSE_UP, MouseUp);
 			optionsButtonBitmap.bitmapData = optionsButtonBitmapData1;
 			addChild(optionsButton);
 			optionsButton.addChild(optionsButtonBitmap);
-			optionsButton.x = 200;
-			optionsButton.y = 300;
+			optionsButton.x = 135;
+			optionsButton.y = 350;
 			optionsButton.name = "options";
 			optionsButtonBitmap.bitmapData = optionsButtonBitmapData1;
 			
-			czechButtonBitmapData1 = (new Resources.LANGCZECH() as Bitmap).bitmapData;  //jenom tlačítko pro češtinu
+			/*czechButtonBitmapData1 = (new Resources.LANGCZECH() as Bitmap).bitmapData;  //jenom tlačítko pro češtinu
 			czechButton.addEventListener(MouseEvent.MOUSE_UP, MouseUp);
 			czechButtonBitmap.bitmapData = czechButtonBitmapData1;
 			addChild(czechButton);
@@ -129,8 +129,7 @@ package
 			englishButton.name = "english";
 			
 			creditstext.text = "tady jsou naše jména apod... zejtraa si s tím pohraju";
-			creditstext.name = "creditstext";
-
+			creditstext.name = "creditstext";*/
 
 		}
 		private function MouseOver(e:MouseEvent):void
@@ -221,16 +220,16 @@ package
 						creditstext.x = 50;
 						creditstext.y = 50;
 						
-						creditsCloseButtonBitmapData1 = (new Resources.MENU_STIT() as Bitmap).bitmapData;  //jenom credits
-						creditsCloseButtonBitmapData2 = (new Resources.MENU_STIT() as Bitmap).bitmapData;
+						creditsCloseButtonBitmapData1 = (new Resources.MENU_BACK_UP() as Bitmap).bitmapData;  //jenom credits
+						creditsCloseButtonBitmapData2 = (new Resources.MENU_BACK_DOWN() as Bitmap).bitmapData;
 						creditsCloseButton.addEventListener(MouseEvent.MOUSE_OVER, MouseOver);
 						creditsCloseButton.addEventListener(MouseEvent.MOUSE_OUT, MouseOut);
 						creditsCloseButton.addEventListener(MouseEvent.MOUSE_UP, MouseUp);
 						creditsCloseButtonBitmap.bitmapData = creditsCloseButtonBitmapData1;
 						addChild(creditsCloseButton);
 						creditsCloseButton.addChild(creditsCloseButtonBitmap);
-						creditsCloseButton.x = 700;
-						creditsCloseButton.y = 500;
+						creditsCloseButton.x = 650;
+						creditsCloseButton.y = 380;
 						creditsCloseButton.name = "creditsClose";
 						creditsCloseButtonBitmap.bitmapData = creditsCloseButtonBitmapData1;
 					}
@@ -256,14 +255,14 @@ package
 				case "czech":
 					if (buttonsActive)
 					{
-						languageczech = true;
+						languageCzech = true;
 					}
 				break;
 				
 				case "english":
 					if (buttonsActive)
 					{
-						languageczech = false;
+						languageCzech = false;
 					}
 				break;
 			}
