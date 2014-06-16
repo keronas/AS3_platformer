@@ -20,16 +20,15 @@ package
 		}
 		public function EnterFrame(evt:Event):void
 			{
-				
-				if (KeyboardListener.spaceDown && this.y==100)
+				ySpeed += 0.4;
+				ySpeed = (parent as PlayState).CheckCollision(this, true, ySpeed)
+				y += ySpeed;
+				if (KeyboardListener.spaceDown && (parent as PlayState).CheckCollision(this, true, 0.1) == 0)
 				{
-					ySpeed = -5;
-					
-					
-						
+					ySpeed = -11;
 				}
 				
-				if (y + ySpeed < 100)
+				/*if (y + ySpeed < 100)
 				{
 					y += ySpeed;
 					ySpeed += 0.2;
@@ -38,7 +37,7 @@ package
 				{
 					y = 100;
 					ySpeed = 0;
-				}
+				}*/
 				
 				xSpeed = 0;
 				if (KeyboardListener.leftDown)

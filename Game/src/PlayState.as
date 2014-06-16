@@ -27,7 +27,7 @@ package
 		{
 			tileSet=new BitmapArray(Resources.TILE_SET_1, 40)
 			tileMap = 
-		 /*[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+		   [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
 			2,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
 			1,1,2,2,2,2,1,1,1,2,1,1,1,1,1,2,2,2,2,2,
 			1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
@@ -41,9 +41,13 @@ package
 			1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,1,1,1,1,
 			1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
 			2,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,
-			2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]*/
+			2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]
 			
-		   [1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,
+		   /*[1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,
+			1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+			1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+			1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,
+			1,1,1,1,1,1,1,1,1,2,2,2,1,1,1,1,1,1,1,1,
 			1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,
 			1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,
 			1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,
@@ -53,11 +57,7 @@ package
 			1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,
 			1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,
 			1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,
-			1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,
-			1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,
-			1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,
-			1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,
-			1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1]
+			1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1]*/
 			trace(1);
 			for (var i:int = 0; i < tileMap.length; i++) 
 			{
@@ -85,15 +85,38 @@ package
 			var fDistance:Number = distance;
 			if (YAxis) 
 			{
-				
+				for (var i:int = 0; i < solidTiles.length ; i++) 
+				{
+					if ((solidTiles[i].x + 40) > obj.x && (solidTiles[i].x - 40) < obj.x && (obj.y + distance) < (solidTiles[i].y + 40) && (solidTiles[i].y - 40) < (obj.y + distance))
+					{
+						//trace(solidTiles[i].x-40, (obj.x + distance), solidTiles[i].x+40);
+						var cMove:Number = distance;
+						if (distance>0)
+						{
+							cMove = (solidTiles[i].y - 40) - obj.y;
+							//trace(cMove);
+						}
+						else
+						{
+							cMove = (solidTiles[i].y + 40) - obj.y;
+							//trace(cMove);
+						}
+						if (Math.abs(cMove) < Math.abs(fDistance))
+						{
+							fDistance = cMove;
+						}
+						
+					}
+					
+				}
 			}
 			else 
 			{
 				for (var i:int = 0; i < solidTiles.length ; i++) 
 				{
-					if ((obj.x + distance) < (solidTiles[i].x + 40) && (solidTiles[i].x - 40) < (obj.x + distance))
+					if ((solidTiles[i].y + 40) > obj.y && (solidTiles[i].y - 40) < obj.y && (obj.x + distance) < (solidTiles[i].x + 40) && (solidTiles[i].x - 40) < (obj.x + distance))
 					{
-						trace(solidTiles[i].x-40, (obj.x + distance), solidTiles[i].x+40);
+						//trace(solidTiles[i].x-40, (obj.x + distance), solidTiles[i].x+40);
 						var cMove:Number = distance;
 						if (distance>0)
 						{
